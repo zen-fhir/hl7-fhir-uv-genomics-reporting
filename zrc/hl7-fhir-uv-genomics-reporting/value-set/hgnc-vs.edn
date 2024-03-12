@@ -1,0 +1,11 @@
+{ns hl7-fhir-uv-genomics-reporting.value-set.hgnc-vs,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "This value set includes all HGNC Codes, which includes multiple code systems. In this guide, Gene IDs from HGNC are used as CodeableConcepts, which must be sent with the HGNC gene ID including the prefix 'HGNC:' as the code and the HGNC 'gene symbol' as display. CAUTION: HGNC also indexes gene groups by numeric ID (without a prefix), and older systems may send HGNC gene IDs without the prefix, so care must be taken to confirm alignment. We have separately included the genegroup code system to draw attention to this ambiguity and potential error.",
+            :zen.fhir/version "0.6.42",
+            :fhir/code-systems #{{:fhir/url "http://www.genenames.org/geneId",
+                                  :zen.fhir/content :not-present}
+                                 {:fhir/url "http://www.genenames.org/genegroup",
+                                  :zen.fhir/content :not-present}},
+            :uri "http://hl7.org/fhir/uv/genomics-reporting/ValueSet/hgnc-vs",
+            :version "2.0.0"}}

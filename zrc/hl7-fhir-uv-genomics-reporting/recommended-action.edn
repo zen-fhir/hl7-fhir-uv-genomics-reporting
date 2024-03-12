@@ -1,0 +1,14 @@
+{ns hl7-fhir-uv-genomics-reporting.recommended-action,
+ import #{zen.fhir
+          hl7-fhir-uv-genomics-reporting.medication-recommendation
+          hl7-fhir-uv-genomics-reporting.followup-recommendation},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "References a proposed action that is recommended based on the results of the diagnostic report.",
+         :zen.fhir/type "Reference",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/recommended-action",
+         :zen.fhir/version "0.6.42",
+         :confirms #{zen.fhir/Reference},
+         :zen.fhir/reference {:refers #{hl7-fhir-uv-genomics-reporting.medication-recommendation/schema
+                                        hl7-fhir-uv-genomics-reporting.followup-recommendation/schema}}}}

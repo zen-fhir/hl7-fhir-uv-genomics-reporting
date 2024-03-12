@@ -1,0 +1,14 @@
+{ns hl7-fhir-uv-genomics-reporting.medication-assessed,
+ import #{zen.fhir
+          hl7-fhir-r4-core.Medication
+          hl7-fhir-r4-core.MedicationKnowledge},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "Used to reference a specific medication that was assessed (e.g. a FHIR Medication or a FHIR MedicationKnowledge).",
+         :zen.fhir/type "Reference",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/medication-assessed",
+         :zen.fhir/version "0.6.42",
+         :confirms #{zen.fhir/Reference},
+         :zen.fhir/reference {:refers #{hl7-fhir-r4-core.Medication/schema
+                                        hl7-fhir-r4-core.MedicationKnowledge/schema}}}}

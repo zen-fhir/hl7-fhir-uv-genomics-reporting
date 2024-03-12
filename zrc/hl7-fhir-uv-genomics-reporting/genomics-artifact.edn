@@ -1,0 +1,10 @@
+{ns hl7-fhir-uv-genomics-reporting.genomics-artifact,
+ import #{zen.fhir hl7-fhir-r4-core.RelatedArtifact},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "Captures citations, evidence and other supporting documentation for the observation or report.",
+         :zen.fhir/type "RelatedArtifact",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-artifact",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.RelatedArtifact/schema}}}

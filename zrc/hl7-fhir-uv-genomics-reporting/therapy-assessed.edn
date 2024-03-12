@@ -1,0 +1,16 @@
+{ns hl7-fhir-uv-genomics-reporting.therapy-assessed,
+ import #{hl7-fhir-r4-core.CarePlan
+          zen.fhir
+          hl7-fhir-r4-core.ResearchStudy
+          hl7-fhir-r4-core.PlanDefinition},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "Used to reference a specific therapy that was assessed (e.g. a FHIR ResearchStudy, a FHIR CarePlan, or a FHIR PlanDefinition).",
+         :zen.fhir/type "Reference",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/therapy-assessed",
+         :zen.fhir/version "0.6.42",
+         :confirms #{zen.fhir/Reference},
+         :zen.fhir/reference {:refers #{hl7-fhir-r4-core.ResearchStudy/schema
+                                        hl7-fhir-r4-core.CarePlan/schema
+                                        hl7-fhir-r4-core.PlanDefinition/schema}}}}

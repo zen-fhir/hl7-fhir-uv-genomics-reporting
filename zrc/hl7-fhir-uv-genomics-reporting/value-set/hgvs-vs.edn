@@ -1,0 +1,9 @@
+{ns hl7-fhir-uv-genomics-reporting.value-set.hgvs-vs,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "HGVS-nomenclature is used to report and exchange information regarding variants found in DNA, RNA and protein sequences and serves as an international standard. (source: varnomen.hgvs.org)",
+            :zen.fhir/version "0.6.42",
+            :fhir/code-systems #{{:fhir/url "http://varnomen.hgvs.org",
+                                  :zen.fhir/content :not-present}},
+            :uri "http://hl7.org/fhir/uv/genomics-reporting/ValueSet/hgvs-vs",
+            :version "2.0.0"}}

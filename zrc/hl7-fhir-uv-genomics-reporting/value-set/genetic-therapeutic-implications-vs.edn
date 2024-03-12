@@ -1,0 +1,18 @@
+{ns hl7-fhir-uv-genomics-reporting.value-set.genetic-therapeutic-implications-vs,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Value Set for terms that describe a predicted ramification based on the presence of associated molecular finding(s).",
+            :zen.fhir/version "0.6.42",
+            :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://loinc.org",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/uv/genomics-reporting/ValueSet/genetic-therapeutic-implications-vs",
+            :version "2.0.0",
+            :ftr {:module "hl7-fhir-uv-genomics-reporting",
+                  :source-url "https://storage.googleapis.com",
+                  :source-type :cloud-storage,
+                  :ftr-path "ftr",
+                  :tag "init",
+                  :validation-index {:type :nippy,
+                                     :file "index.nippy"}}}}

@@ -1,0 +1,13 @@
+{ns hl7-fhir-uv-genomics-reporting.coded-annotation,
+ import #{zen.fhir
+          hl7-fhir-r4-core.Annotation
+          hl7-fhir-uv-genomics-reporting.annotation-code},
+ schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen/desc "Annotation DataType with added CodeableConcept extension element",
+         :zen.fhir/type "Annotation",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/coded-annotation",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.Annotation/schema},
+         :type zen/map,
+         :keys {:code {:confirms #{hl7-fhir-uv-genomics-reporting.annotation-code/schema},
+                       :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/annotation-code"}}}}

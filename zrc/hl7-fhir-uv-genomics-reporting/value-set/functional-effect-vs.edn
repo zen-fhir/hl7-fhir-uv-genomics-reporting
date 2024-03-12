@@ -1,0 +1,9 @@
+{ns hl7-fhir-uv-genomics-reporting.value-set.functional-effect-vs,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "The effect of a variant on downstream biological products or pathways.",
+            :zen.fhir/version "0.6.42",
+            :fhir/code-systems #{{:fhir/url "http://sequenceontology.org",
+                                  :zen.fhir/content :not-present}},
+            :uri "http://hl7.org/fhir/uv/genomics-reporting/ValueSet/functional-effect-vs",
+            :version "2.0.0"}}

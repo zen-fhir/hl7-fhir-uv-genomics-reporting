@@ -1,0 +1,18 @@
+{ns hl7-fhir-uv-genomics-reporting.value-set.evidence-level-example-vs,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Example sources of values for Evidence Level",
+            :zen.fhir/version "0.6.42",
+            :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/clinvar-evidence-level-custom-cs",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/pharmgkb-evidence-level-custom-cs",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/uv/genomics-reporting/ValueSet/evidence-level-example-vs",
+            :version "2.0.0",
+            :ftr {:module "hl7-fhir-uv-genomics-reporting",
+                  :source-url "https://storage.googleapis.com",
+                  :source-type :cloud-storage,
+                  :ftr-path "ftr",
+                  :tag "init",
+                  :validation-index {:type :nippy,
+                                     :file "index.nippy"}}}}

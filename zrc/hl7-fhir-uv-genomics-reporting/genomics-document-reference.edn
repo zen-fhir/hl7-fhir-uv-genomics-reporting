@@ -1,0 +1,17 @@
+{ns hl7-fhir-uv-genomics-reporting.genomics-document-reference,
+ import #{zen.fhir
+          hl7-fhir-uv-genomics-reporting.genomics-report
+          hl7-fhir-r4-core.DocumentReference},
+ schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen/desc "A profile of DocumentReference used to represent a genomics file.",
+         :zen.fhir/type "DocumentReference",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-document-reference",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.DocumentReference/schema
+                     zen.fhir/Resource},
+         :type zen/map,
+         :keys {:description {:zen/desc "Human-readable description to provide guidance on how the file was generated"},
+                :context {:type zen/map,
+                          :keys {:related {:type zen/vector,
+                                           :every {:confirms #{zen.fhir/Reference},
+                                                   :zen.fhir/reference {:refers #{hl7-fhir-uv-genomics-reporting.genomics-report/schema}}}}}}}}}

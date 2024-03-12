@@ -1,0 +1,10 @@
+{ns hl7-fhir-uv-genomics-reporting.genomic-report-note,
+ import #{zen.fhir hl7-fhir-r4-core.Annotation},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "Adds codified notes to a report to capture additional content",
+         :zen.fhir/type "Annotation",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-report-note",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.Annotation/schema}}}

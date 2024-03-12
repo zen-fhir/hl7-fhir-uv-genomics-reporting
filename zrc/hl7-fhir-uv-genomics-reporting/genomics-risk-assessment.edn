@@ -1,0 +1,11 @@
+{ns hl7-fhir-uv-genomics-reporting.genomics-risk-assessment,
+ import #{zen.fhir hl7-fhir-r4-core.RiskAssessment},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "RiskAssessment delivered as part of a genomics report or observation",
+         :zen.fhir/type "Reference",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-risk-assessment",
+         :zen.fhir/version "0.6.42",
+         :confirms #{zen.fhir/Reference},
+         :zen.fhir/reference {:refers #{hl7-fhir-r4-core.RiskAssessment/schema}}}}

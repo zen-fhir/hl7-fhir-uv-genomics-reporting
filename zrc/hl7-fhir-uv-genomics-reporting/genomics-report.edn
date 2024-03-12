@@ -1,0 +1,52 @@
+{ns hl7-fhir-uv-genomics-reporting.genomics-report,
+ import #{zen.fhir
+          hl7-fhir-r4-core.workflow-supportingInfo
+          hl7-fhir-uv-genomics-reporting.genomics-risk-assessment
+          hl7-fhir-r4-core.DiagnosticReport
+          hl7-fhir-uv-genomics-reporting.genomic-report-note
+          hl7-fhir-uv-genomics-reporting.recommended-action
+          hl7-fhir-uv-genomics-reporting.genomics-artifact
+          hl7-fhir-uv-genomics-reporting.genomics-file},
+ schema {:zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.DiagnosticReport/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-report",
+         :require #{:category},
+         :type zen/map,
+         :zen/desc "Genomics profile of DiagnosticReport.",
+         :keys {:genomics-artifact {:type zen/vector,
+                                    :every {:confirms #{hl7-fhir-uv-genomics-reporting.genomics-artifact/schema},
+                                            :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-artifact"}},
+                :genomics-file {:type zen/vector,
+                                :every {:confirms #{hl7-fhir-uv-genomics-reporting.genomics-file/schema},
+                                        :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-file"}},
+                :recommended-action {:type zen/vector,
+                                     :every {:confirms #{hl7-fhir-uv-genomics-reporting.recommended-action/schema},
+                                             :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/recommended-action"}},
+                :genomics-risk-assessment {:type zen/vector,
+                                           :every {:confirms #{hl7-fhir-uv-genomics-reporting.genomics-risk-assessment/schema},
+                                                   :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-risk-assessment"}},
+                :coded-note {:type zen/vector,
+                             :every {:confirms #{hl7-fhir-uv-genomics-reporting.genomic-report-note/schema},
+                                     :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-report-note",
+                                     :zen/desc "Comments about the report that also contain a coded type"}},
+                :supporting-info {:type zen/vector,
+                                  :every {:confirms #{hl7-fhir-r4-core.workflow-supportingInfo/schema},
+                                          :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo"}},
+                :category {:type zen/vector,
+                           :slicing {:slices {"Genetics" {:schema {:type zen/vector,
+                                                                   :minItems 1,
+                                                                   :maxItems 1,
+                                                                   :every {:type zen/map,
+                                                                           :keys {:coding {:type zen/vector,
+                                                                                           :every {:match {:system "http://terminology.hl7.org/CodeSystem/v2-0074",
+                                                                                                           :code "GE"}},
+                                                                                           :minItems 1}},
+                                                                           :require #{:coding}}},
+                                                          :filter {:engine :match,
+                                                                   :match {:coding {:system "http://terminology.hl7.org/CodeSystem/v2-0074",
+                                                                                    :code "GE"}}}}}},
+                           :minItems 1},
+                :effective {:fhir/polymorphic true, :type zen/map}},
+         :zen.fhir/type "DiagnosticReport"}}

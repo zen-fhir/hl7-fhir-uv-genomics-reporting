@@ -1,0 +1,38 @@
+{ns hl7-fhir-uv-genomics-reporting.genomics-base,
+ import #{hl7-fhir-r4-core.Observation
+          zen.fhir
+          hl7-fhir-r4-core.bodySite
+          hl7-fhir-uv-genomics-reporting.coded-annotation
+          hl7-fhir-r4-core.observation-secondaryFinding},
+ schema {:zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.Observation/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-base",
+         :require #{:category},
+         :type zen/map,
+         :zen/desc "Base profile that defines characteristics shared by all genetic observations.",
+         :keys {:secondary-finding {:confirms #{hl7-fhir-r4-core.observation-secondaryFinding/schema},
+                                    :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding"},
+                :body-structure {:confirms #{hl7-fhir-r4-core.bodySite/schema},
+                                 :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/bodySite"},
+                :category {:type zen/vector,
+                           :slicing {:slices {}},
+                           :minItems 1},
+                :note {:type zen/vector,
+                       :every {:confirms #{hl7-fhir-uv-genomics-reporting.coded-annotation/schema},
+                               :zen/desc "Comments about the Observation that also contain a coded type"}},
+                :component {:type zen/vector,
+                            :slicing {:slices {"conclusion-string" {:schema {:type zen/vector,
+                                                                             :maxItems 1,
+                                                                             :every {:type zen/map,
+                                                                                     :keys {:code {:match {:coding #{{:system "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+                                                                                                                      :code "conclusion-string"}}},
+                                                                                                   :zen/desc "conclusion-string"},
+                                                                                            :value {:fhir/polymorphic true,
+                                                                                                    :type zen/map,
+                                                                                                    :zen/desc "Summary conclusion (interpretation/impression)"}}}},
+                                                                    :filter {:engine :match,
+                                                                             :match {:code {:coding #{{:system "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+                                                                                                       :code "conclusion-string"}}}}}}}}}},
+         :zen.fhir/type "Observation"}}

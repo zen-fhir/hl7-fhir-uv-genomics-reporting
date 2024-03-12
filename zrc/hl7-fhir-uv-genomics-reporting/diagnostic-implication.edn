@@ -1,0 +1,18 @@
+{ns hl7-fhir-uv-genomics-reporting.diagnostic-implication,
+ import #{zen.fhir
+          hl7-fhir-uv-genomics-reporting.genomics-risk-assessment
+          hl7-fhir-uv-genomics-reporting.implication},
+ schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen/desc "Observation stating a linkage between one or more genotype/haplotype/variation Observations and evidence for or against a particular disease, condition, or cancer diagnosis.",
+         :zen.fhir/type "Observation",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-uv-genomics-reporting.implication/schema
+                     zen.fhir/Resource},
+         :type zen/map,
+         :keys {:genomics-risk-assessment {:type zen/vector,
+                                           :every {:confirms #{hl7-fhir-uv-genomics-reporting.genomics-risk-assessment/schema},
+                                                   :fhir/extensionUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomics-risk-assessment"}},
+                :code {:match {:coding #{{:system "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+                                          :code "diagnostic-implication"}}},
+                       :zen/desc "diagnostic-implication"}}}}

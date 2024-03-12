@@ -1,0 +1,14 @@
+{ns hl7-fhir-uv-genomics-reporting.annotation-code,
+ import #{zen.fhir
+          hl7-fhir-r4-core.CodeableConcept
+          hl7-fhir-uv-genomics-reporting.value-set.coded-annotation-types-vs},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
+         :zen/desc "Codifies the content of an Annotation",
+         :zen.fhir/type "CodeableConcept",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/annotation-code",
+         :zen.fhir/version "0.6.42",
+         :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+         :zen.fhir/value-set {:symbol hl7-fhir-uv-genomics-reporting.value-set.coded-annotation-types-vs/value-set,
+                              :strength :example}}}
